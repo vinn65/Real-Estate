@@ -1,0 +1,139 @@
+.Contact{
+    width: 80%;
+    height: 100vh;
+    margin-top: 100px;
+}
+
+.Contact fieldset{
+    width: 80%;
+    margin: auto;
+    background: #eee;
+    padding: 20px;
+    height: 80%;
+    box-shadow: 0 0 4px #ccc;
+}
+.Contact p{
+    text-align: center;
+    margin-bottom: 10px;
+}
+.registration input{
+ height: 40px;
+ margin-top: 20px;
+ border-radius: 20px;
+ border: 2px #ccc solid;
+}
+.Contact input,
+.Contact textarea{
+    margin-bottom: 20px;
+    padding: 5px;
+    border: 1px #cccccc solid;
+    border-radius: 10px;   
+    height: 40px;
+}
+input[type ="text"],
+input[type="email"],
+textarea {
+    width: 50%;
+}
+
+input,
+textarea,
+button {
+    border: 1px solid rgb(63, 20, 144);
+}
+.Contact textarea{
+    height: 200px;
+}
+.Contact button{
+    width: 50%;
+    height: 40px;
+   border-radius: 20px;
+}
+
+.Contact button:hover{
+   background-color: rgb(51, 51, 51);
+   color: #fff;
+   cursor: pointer;
+}
+.footer{
+    height: 75px;
+    background-color: beige;
+    margin-top: 560x;
+    width: 100%;
+    display: inline-block;
+}
+.footer1{
+  margin-top: 10px;
+  font-size: x-large;
+}
+/* .overlay{
+  width: 100%;
+  height: 100%;
+} */
+.tag-line{
+position: absolute;
+top: 20%;
+/* width: 100%; */
+/* text-align: center; */
+font-size: 50px;
+font-weight: 900;
+color: black;
+/* text-transform: uppercase; */
+opacity: 0.5;
+}
+input[type ="text"],input[type= "password"],input[type= "email"]{
+width: 50%;
+}
+
+/* .text-display{
+    position:absolute;   
+    display: block;
+    font-size: 36px;
+    line-height: 48px;
+    font-weight: 700;
+    color:black;
+    margin-top: 75px;
+    margin-left:300px;
+    margin-bottom: 15px;
+} */
+@media (max-width:370px){
+    nav .navbar .nav-links{
+    max-width: 100%;
+  } 
+  }
+.login-register-text{
+    margin-top: 20px;
+}
+
+table {
+    margin: 0 auto;
+    font-size: large;
+    border: 1px solid black;
+width: 90%;
+margin-top: 90px;
+}
+
+h1 {
+    text-align: center;
+    color: #006600;
+    font-size: xx-large;
+    font-family: 'Gill Sans', 'Gill Sans MT',
+    ' Calibri', 'Trebuchet MS', 'sans-serif';
+}
+
+td {
+    background-color: beige;
+    border: 1px solid black;
+}
+
+th,
+td {
+    font-weight: bold;
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+}
+
+td {
+    font-weight: lighter;
+}

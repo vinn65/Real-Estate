@@ -1,0 +1,77 @@
+{% extends 'base/nav.html' %}
+{% load static %}
+{% block content %}
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles/general.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="{% static 'css/video.css' %}">
+    <link rel="stylesheet" href="styles/sidebar.css">
+    <style>
+              .update, .delete{
+        background-color: green;
+        text-decoration: none;
+        color: white;
+        border-radius: 7px;
+        border: 0;
+        outline: none;
+        height: 23px;
+        width: 80px;
+        font-weight: bold;
+        cursor: pointer;
+        }
+        .delete{
+        background-color: red;
+        
+        }
+    </style>
+    <title>Properties</title>
+  </head>
+  <body>
+    <main>
+      {% if user.is_authenticated %}
+      <section class="video-grid" style="margin-top: 95px;">
+        {% if property_count > 0 %}
+        {% for item in properties %}
+         {% if request.user == item.owner %}
+        <div class="video-preview">
+          <div class="thumbnail-row">
+            <img class="thumbnail" src="{{item.image.url}}">
+            <!-- <div class="video-time">14:20</div> -->
+          </div>
+          <div class="video-info-grid">
+            <div class="channel-picture">
+              <img class="profile-picture" src="{{item.owner.avatar.url}}">
+            </div>
+            <div class="video-info">
+              <p class="video-title">
+                {{item.description}}  
+              </p>
+              <p class="video-title">
+               Location:{{item.city}}-{{item.location}}
+              </p>
+              <p class="video-stats">
+                {{item.status}} &#183; ksh {{item.price}}
+               </p>
+              <p class="">
+                <a class='update'; href="{% url 'update-property' item.id %}">Update</a> <a class='update'; href="{% url 'update-property' item.id %}">Advertise</a> <a class='delete'; href="{% url 'delete-property' item.id %}">Delete</a></p>
+              </p>
+            </div>
+          </div>
+       </div>
+       {% endif %}
+       {% endfor %}
+       {% else %}
+       <legend style="margin-left: 40%;">Looks like you don`t have any registered properties <p><a href="{% url 'regprop' %}">Register</a> your Properties here</p></legend>
+       
+        {% endif %}
+       
+        {% else %}
+        <p style="margin-top: 95px; margin-left: 40%;">Login to view your property</p>
+      </section>
+      {% endif %}
+    </main>
+    {% endblock %}

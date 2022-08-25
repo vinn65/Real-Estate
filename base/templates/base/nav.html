@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
+  
+    <title>Home</title>
+</head>
+<body>
+    <nav>
+        <div class="nav-bar">
+            <i class='bx bx-menu sidebarOpen' ></i>
+            <span class="logo navLogo"><a href="{% url 'index' %}">HomeFinder</a></span>
+
+            <div class="menu">
+                <div class="logo-toggle">
+                    <span class="logo"><a href="{% url 'index' %}">HomeFinder</a></span>
+                    <i class='bx bx-x siderbarClose'></i>
+                </div>
+
+                <ul class="nav-links">
+                    <!-- <li><a href="{% url 'index' %}">Home</a></li> -->
+                {% if user.is_authenticated %}  
+                <li><a href="#">welcome {{request.user}}</a></li>
+                    <li><a href="#">Adverts</a></li>
+                    <li><a href="#">advertise</a></li>
+                    <li><a href="{% url 'property' %}">View Properties</a></li>
+                    <li><a href="{% url 'regprop' %}">Register</a></li>
+                    <!-- <li><a href="#">Upgrade</a></li>
+                    <li><a href="#">Contact</a></li> -->
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+
+                {% else %}
+                    <li><a href="{% url 'index' %}">Home</a></li>
+                    <li><a href="#">Adverts</a></li>
+                    <li><a href="{% url 'property' %}">View Properties</a></li>
+                    <li><a href="#"></a></li>
+                    <li><a href="{% url 'contact' %}">Contact</a></li>
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                </ul>
+                {% endif %}
+            </div>
+
+            <div class="darkLight-searchBox">
+                <div class="dark-light">
+                    <i class='bx bx-moon moon'></i>
+                    <i class='bx bx-sun sun'></i>
+                </div>
+                <form action="{% url 'search' %}" method="get">
+                <div class="searchBox">
+                   <div class="searchToggle">
+                    <i class='bx bx-x cancel'></i>
+                    <i class='bx bx-search search'></i>
+                   </div>
+                  
+                    <div class="search-field">
+                        <input type="text" name="q" placeholder="Search by location/price ...">
+                        <i class='bx bx-search'></i>
+                    </div>
+                    
+                </div>
+            </form>
+            </div>
+        </div>
+    </nav>
+    {% block content %}
+    
+    {% endblock %}
+
+    <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>

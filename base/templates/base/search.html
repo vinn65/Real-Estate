@@ -1,0 +1,48 @@
+{% extends 'base/nav.html' %}
+{% load static %}
+{% block content %}
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles/general.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="{% static 'css/video.css' %}">
+    <link rel="stylesheet" href="styles/sidebar.css">
+    <title>Properties</title>
+  </head>
+  <body>
+    <main>
+      <section class="video-grid" style="margin-top: 95px;">
+        {% for item in properties %}
+        <div class="video-preview">
+          <div class="thumbnail-row">
+            <img class="thumbnail" src="{{item.image.url}}">
+            <!-- <div class="video-time">14:20</div> -->
+          </div>
+          <div class="video-info-grid">
+            <div class="channel-picture">
+              <img class="profile-picture" src="{{item.owner.avatar.url}}">
+            </div>
+            <div class="video-info">
+              <p class="video-title">
+                {{item.description}} 
+              </p>
+              <p class="video-title">
+               Location:{{item.city}}-{{item.location}}
+              </p>
+              <p class="video-author">
+                owned by:{{item.owner}}
+              </p>
+              <p class="video-stats">
+               {{item.status}} &#183; ksh {{item.price}}
+              </p>
+            </div>
+          </div>
+       </div>
+       {% endfor %}
+      </section>
+     
+    </main>
+    {% endblock %}
